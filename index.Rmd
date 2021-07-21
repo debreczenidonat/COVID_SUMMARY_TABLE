@@ -1,0 +1,109 @@
+---
+title: "COVID SUMMARY TABLE"
+#author: "by Debreczeni Donat"
+output: html_document
+---
+```{r readRDS,echo=FALSE,warning=F}
+library(reactable)
+library(sparkline)
+ref_date <- readRDS("SUMMARY_TABLE_DATE.Rdata")
+SUMMARY_TABLE <- readRDS("SUMMARY_TABLE.Rdata")
+```
+## Introduction
+
+The following table contains useful metrics to quickly get an idea about the covid situation in different countries. You may filter by typing in the blank space under the Country and Continent headers. You may also sort the table with the headers by clicking on them (click twice for descending order)
+
+A few words about the metrics: Every column builds on smoothed data, which was done with a 7-day moving average. The "/M Pop" means that the value is projected into 1 million people for the current region. The tooltips appearing on the time series show the smoothed case counts, without projecting it to a million people! 
+
+####### Datasource: <https://github.com/owid/covid-19-data>
+####### Used R libraries: tidyverse, rmarkdown, reactable
+#
+
+#### Reference date: **`r ref_date`**
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+
+```
+
+```{r reactable,echo=FALSE,warning=F}
+sticky_style <- list(position = "sticky", left = 0, background = "#fff", zIndex = 1,
+                     borderRight = "1px solid #eee")
+
+ reactable(
+  SUMMARY_TABLE,
+  columns = list(
+    location = colDef(
+      header = "Country",
+      align = "left"
+      # ,style = sticky_style,
+      # headerStyle = sticky_style
+    ),
+    Continent = colDef(
+      header = "Continent"
+      ,width=85
+      ,align = "left"
+    ),
+    Population_mill = colDef(
+      header = "Pop in M"
+      ,filterable=F
+      ,width=60
+      ,align = "left"
+    ),
+    # New_case_count_per_mill = colDef(
+    #   header = "New case count/M"
+    # ),
+    New_case_count_per_mill_smoothed = colDef(
+      header = "Smoothed new case count/M Pop"
+      ,filterable=F
+    ),
+    Weekly_change_of_new_cases_per_mill = colDef(
+      header = "Weekly new case chg./M Pop"
+      ,filterable=F
+    ),
+    Weekly_change_of_new_cases_percent = colDef(
+      header = "Weekly new case chg. %"
+      ,filterable=F
+      ,format = colFormat(percent = TRUE, digits = 1)
+    ),
+    New_cases_timeline = colDef(
+      cell = function(value, index) {
+        sparkline(SUMMARY_TABLE$New_cases_timeline[[index]])
+      },
+      header="Smoothed new cases last week"
+      ,filterable=F
+      ,width=90
+      ,align = "center"
+    ),
+    # New_death_count_per_mill = colDef(
+    #   header = "New death count/M"
+    # ),
+    New_death_count_per_mill_smoothed = colDef(
+      header = "Smoothed new death count/M Pop"
+      ,filterable=F
+      ,width=90
+    ),
+    Weekly_change_of_new_deaths_per_mill = colDef(
+      header = "Weekly new death chg./M Pop"
+      ,filterable=F
+      ,width=90
+    ),
+    New_deaths_timeline = colDef(
+      cell = function(value, index) {
+        sparkline(SUMMARY_TABLE$New_deaths_timeline[[index]])
+      },
+      header="Smoothed new deaths last week"
+      ,filterable=F
+      ,width=90
+      ,align = "center"
+    )
+  ),
+  bordered = TRUE,
+  highlight = TRUE,
+  filterable = TRUE, 
+  defaultPageSize = 40,
+  fullWidth=T,
+  striped = TRUE,
+  resizable = TRUE
+)
+```
