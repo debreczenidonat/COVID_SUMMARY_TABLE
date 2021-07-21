@@ -90,6 +90,8 @@ SUMMARY_TABLE <- RBT %>%
 saveRDS(SUMMARY_TABLE,"SUMMARY_TABLE.Rdata")
 saveRDS(max(RBT$date),"SUMMARY_TABLE_DATE.Rdata")
 
+gc()
+
 #system("git remote add origin https://github.com/debreczenidonat/COVID_SUMMARY_TABLE.git")
 
 
