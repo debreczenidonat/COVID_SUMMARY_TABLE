@@ -54,7 +54,8 @@ SUMMARY_TABLE <- RBT %>%
             New_death_count_per_mill_smoothed = round(last(new_deaths_smoothed_per_million,date),1),
             Weekly_change_of_new_deaths_per_mill=round((last(new_deaths_smoothed_per_million,date)-first(new_deaths_smoothed_per_million,date)),1),
             New_deaths_timeline = list(new_deaths_smoothed)
-  ) 
+  ) %>%
+  mutate(.,Weekly_change_of_new_cases_percent=ifelse(is.infinite(Weekly_change_of_new_cases_percent),NA,Weekly_change_of_new_cases_percent))
 # %>%
 #   mutate_at(.,is.numeric,round,digits=1)
 

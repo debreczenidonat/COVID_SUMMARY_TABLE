@@ -105,5 +105,6 @@ sticky_style <- list(position = "sticky", left = 0, background = "#fff", zIndex 
   fullWidth=T,
   striped = TRUE,
   resizable = F
+  # ,height = 800
 )
 ```
