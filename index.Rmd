@@ -99,7 +99,7 @@ sticky_style <- list(position = "sticky", left = 0, background = "#fff", zIndex 
     )
   ),
   bordered = TRUE,
-  highlight = TRUE,
+  highlight = F,
   filterable = TRUE, 
   defaultPageSize = 40,
   fullWidth=T,
