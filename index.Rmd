@@ -54,11 +54,11 @@ sticky_style <- list(position = "sticky", left = 0, background = "#fff", zIndex 
     #   header = "New case count/M"
     # ),
     New_case_count_per_mill_smoothed = colDef(
-      header = "Average new case count of the last 7 days/M Pop"
+      header = "Average new case count of the last 7 days /M Pop"
       ,filterable=F
     ),
     Weekly_change_of_new_cases_per_mill = colDef(
-      header = "Weekly new case chg./M Pop"
+      header = "Weekly change of averaged new cases /M Pop"
       ,filterable=F
     ),
     Weekly_change_of_new_cases_percent = colDef(
@@ -79,12 +79,12 @@ sticky_style <- list(position = "sticky", left = 0, background = "#fff", zIndex 
     #   header = "New death count/M"
     # ),
     New_death_count_per_mill_smoothed = colDef(
-      header = "Average new death count of the last 7 days/M Pop"
+      header = "Average new death count of the last 7 days /M Pop"
       ,filterable=F
       ,width=90
     ),
     Weekly_change_of_new_deaths_per_mill = colDef(
-      header = "Weekly new death chg./M Pop"
+      header = "Weekly new death chg. /M Pop"
       ,filterable=F
       ,width=90
     ),
