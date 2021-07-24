@@ -19,6 +19,10 @@ A few words about the metrics: Every column builds on smoothed data, which was d
 ####### Datasource: <https://github.com/owid/covid-19-data>
 ####### Used R libraries: tidyverse, rmarkdown, reactable
 #
+#
+#
+
+
 #### **PLEASE NOTE, that the page is developed and maintained in my free time, therefore it is possible that the data won't be updated regularly. Make sure to check the reference date!**
 #### Reference date: **`r ref_date`**
 
