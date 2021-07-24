@@ -10,6 +10,7 @@ ref_date <- readRDS("SUMMARY_TABLE_DATE.Rdata")
 SUMMARY_TABLE <- readRDS("SUMMARY_TABLE.Rdata")
 ```
 ## Introduction
+This project was created to try out **reactable**, an R library which let's you present datatables in a much more appealing and functioning form. Since many people are interested in the pandemic situation, I have decided to use OWID's public COVID data and share the result here on github.
 
 The following table contains useful metrics to quickly get an idea about the covid situation in different countries. You may **filter** by typing in the blank space under the Country and Continent headers. You may also **sort** the table with the headers by clicking on them (click twice for descending order)
 
@@ -18,7 +19,7 @@ A few words about the metrics: Every column builds on smoothed data, which was d
 ####### Datasource: <https://github.com/owid/covid-19-data>
 ####### Used R libraries: tidyverse, rmarkdown, reactable
 #
-
+#### **PLEASE NOTE, that the page is developed and maintained in my free time, therefore it is possible that the data won't be updated regularly. Make sure to check the reference date!**
 #### Reference date: **`r ref_date`**
 
 ```{r setup, include=FALSE}
