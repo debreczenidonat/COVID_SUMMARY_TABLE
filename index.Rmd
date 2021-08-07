@@ -1,7 +1,10 @@
 ---
 title: "COVID OVERVIEW TABLE"
 #author: "by Debreczeni Donat"
-output: html_document
+output:
+  html_document:
+    includes:
+       in_header: GA_Script.html
 ---
 ```{r readRDS,echo=FALSE,warning=F}
 library(reactable)
